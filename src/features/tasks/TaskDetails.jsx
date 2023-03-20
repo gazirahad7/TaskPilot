@@ -71,9 +71,9 @@ export default function TaskDetails({ taskId }) {
   };
 
   const list = (anchor) => (
-    <Container maxWidth="md">
+    <Container maxWidth="sm">
       <Box
-        sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 350 }}
+        sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 300 }}
         role="presentation"
         onClick={toggleDrawer(anchor, true)}
         onKeyDown={toggleDrawer(anchor, true)}

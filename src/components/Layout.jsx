@@ -19,6 +19,7 @@ import Top from "./Top";
 import FormatListBulletedRoundedIcon from "@mui/icons-material/FormatListBulletedRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
+import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 import { useSelector } from "react-redux";
 import NavItem from "./NavItem";
 const drawerWidth = 270;
@@ -155,6 +156,12 @@ export default function Layout({ children }) {
             name="Important"
             path="important"
             icon={<StarRoundedIcon />}
+            countList={importantTasks?.length}
+          />
+          <NavItem
+            name="Today"
+            path="today"
+            icon={<CalendarMonthRoundedIcon />}
             countList={importantTasks?.length}
           />
 
