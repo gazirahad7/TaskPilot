@@ -83,7 +83,7 @@ header {
   overflow-y: hidden;
 }
 .mt-8 {
-  margin-top: 80px;
+  margin-top: 70px;
 }
 .css-dazktm {
   background-color: rgb(255, 255, 255, 0.7) !important;
@@ -148,4 +148,24 @@ a {
   justify-content: space-between !important;
   align-items: center;
   margin: 0px 5px;
+}
+
+.theme-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.theme-item {
+  width: 60px;
+  height: 60px;
+  background-color: aqua;
+  cursor: pointer;
+}
+
+.app-main {
+  background-image: url("/bg-one.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 100 vh;
 }
