@@ -7,6 +7,9 @@ body {
   padding: 0;
   background-color: var(--main-color);
 }
+header {
+  background-color: transparent !important;
+}
 
 .main-cont {
   display: grid;
