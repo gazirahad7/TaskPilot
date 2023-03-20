@@ -50,6 +50,7 @@ Item.propTypes = {
 
 //const tasks = useSelector((state) => state.taskReducer);
 export default function TasksView({ taskList }) {
+  const completeAudio = new Audio("/complete.wav");
   const dispatch = useDispatch();
 
   const handleCheck = (id) => {
@@ -86,7 +87,7 @@ export default function TasksView({ taskList }) {
                 ) : (
                   <FormControlLabel
                     onClick={() => {
-                      handleCheck(el.id);
+                      handleCheck(el.id), completeAudio.play();
                     }}
                     control={<Checkbox />}
                   />
