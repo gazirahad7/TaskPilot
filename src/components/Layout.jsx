@@ -76,7 +76,7 @@ export default function Layout({ children }) {
     backgroundImage: 'url("/bg-one.jpg")',
     backgroundSize: "cover",
     backgroundPosition: "center center",
-    height: " 105vh ",
+    height: " 100vh ",
   };
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
