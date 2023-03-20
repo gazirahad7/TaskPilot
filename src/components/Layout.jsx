@@ -22,6 +22,7 @@ import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 import { useSelector } from "react-redux";
 import NavItem from "./NavItem";
+import { dateFormat } from "../helper/formater";
 const drawerWidth = 270;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -93,7 +94,9 @@ export default function Layout({ children }) {
   const tasks = useSelector((state) => state.taskReducer);
   const completeTasks = tasks.filter((task) => task.complete === true);
   const importantTasks = tasks.filter((task) => task.star === true);
-
+  const todayTasks = tasks.filter(
+    (task) => dateFormat(task.created) === dateFormat(new Date())
+  );
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -159,10 +162,10 @@ export default function Layout({ children }) {
             countList={importantTasks?.length}
           />
           <NavItem
-            name="Today"
-            path="today"
+            name="Today List"
+            path="today-tasks"
             icon={<CalendarMonthRoundedIcon />}
-            countList={importantTasks?.length}
+            countList={todayTasks?.length}
           />
 
           <AddTask />

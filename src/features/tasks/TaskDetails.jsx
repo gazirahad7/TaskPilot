@@ -17,16 +17,8 @@ import { deleteTask, updateTaskValue } from "./taskSlice";
 import ModeEditOutlineRoundedIcon from "@mui/icons-material/ModeEditOutlineRounded";
 
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
+import { dateFormat } from "../../helper/formater";
 
-function dateFormat(dateTime) {
-  const today = new Date(dateTime);
-  const month = today.getMonth() + 1;
-  const year = today.getFullYear();
-  const day = today.getDate() < 10 ? `0${today.getDate()}` : today.getDate();
-  const getDate = `${day}-${month < 10 ? `0${month}` : month}-${year}`;
-
-  return getDate;
-}
 export default function TaskDetails({ taskId }) {
   //console.log({ taskId });
   const tasks = useSelector((state) => state.taskReducer);
