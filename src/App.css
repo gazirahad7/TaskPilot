@@ -1,0 +1,148 @@
+:root {
+  --main-color: hsl(0, 100%, 3%);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--main-color);
+}
+
+.main-cont {
+  display: grid;
+  grid-template-columns: 220px auto;
+  height: 100vh;
+}
+
+.navbar {
+  background-color: var(--main-color);
+  color: white;
+}
+
+.main {
+  margin-top: 30px;
+  border-top-left-radius: 15px;
+  border: 1px solid var(--main-color);
+  background-color: rgb(233, 224, 224);
+}
+.fixed-bottom {
+  position: fixed;
+  right: 0;
+  bottom: 5%;
+  left: 0;
+  z-index: 99;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+
+.list-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-task {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  right: 0;
+  bottom: 4%;
+  left: 0;
+  z-index: 1000;
+  background-color: #fff;
+  padding: 10px;
+}
+.add-input {
+  width: 100%;
+  /* margin-left: 220px; */
+
+  /* position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -330px; */
+  padding: 0 10px;
+  margin-top: 30px;
+}
+.bg-transparent {
+  background-color: transparent;
+}
+
+/* .css-jzk4qw-MuiPaper-root-MuiAppBar-root,
+.css-ciy9n4-MuiPaper-root-MuiAppBar-root {
+  background-color: white !important;
+  box-shadow: none !important;
+} */
+
+.css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
+  overflow-y: hidden;
+}
+.mt-8 {
+  margin-top: 80px;
+}
+.css-dazktm {
+  background-color: rgb(255, 255, 255, 0.7) !important;
+  color: #000 !important;
+  padding: 1px 10px !important;
+}
+.css-hyum1k-MuiToolbar-root,
+.css-3xgdwk-MuiPaper-root-MuiAppBar-root,
+.css-ciy9n4-MuiPaper-root-MuiAppBar-root,
+.css-s2ribs-MuiPaper-root-MuiAppBar-root {
+  background-color: transparent !important;
+  font-weight: bold;
+  z-index: 99;
+}
+
+.item-end {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4%;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 5px 15px;
+  background-color: azure;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+.countItem {
+  margin-left: 80px;
+  font-size: 6 !important;
+  font-weight: normal;
+  background-color: #fff;
+  padding: 3px;
+  border: 1px solid transparent;
+  border-radius: 50px;
+  width: 25px;
+  height: 25px;
+}
+.d-flex-btw {
+  display: flex;
+  justify-content: space-between;
+}
+
+.css-1cs64f3 {
+  justify-content: space-between !important;
+  align-items: center;
+  margin: 0px 5px;
+}
