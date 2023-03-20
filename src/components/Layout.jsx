@@ -171,7 +171,7 @@ export default function Layout({ children }) {
           <AddTask />
         </List>
       </Drawer>
-      <Main open={open} style={bgImgCSS}>
+      <Main open={open} className="app-main">
         {children}
       </Main>
     </Box>

@@ -63,7 +63,7 @@ export default function TasksView({ taskList }) {
     dispatch(isStare(id));
   };
   return (
-    <div>
+    <div className="task-view">
       <Box
         sx={{ display: "grid", gridTemplateRows: "repeat(3, 1fr)" }}
         className="mt-8 "
