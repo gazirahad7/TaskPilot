@@ -1,5 +1,6 @@
 import StarOutlineRoundedIcon from "@mui/icons-material/StarOutlineRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
+import { Alert } from "@mui/material";
 import Box from "@mui/material/Box";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -7,7 +8,7 @@ import PropTypes from "prop-types";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TaskDetails from "./TaskDetails";
-import { isComplete, isStare, unChecked } from "./taskSlice";
+import { isComplete, isNotStare, isStare, unChecked } from "./taskSlice";
 
 function Item(props) {
   const { sx, ...other } = props;
@@ -51,6 +52,7 @@ Item.propTypes = {
 //const tasks = useSelector((state) => state.taskReducer);
 export default function TasksView({ taskList }) {
   const completeAudio = new Audio("/complete.wav");
+
   const dispatch = useDispatch();
 
   const handleCheck = (id) => {
@@ -63,12 +65,21 @@ export default function TasksView({ taskList }) {
   const handleStare = (id) => {
     dispatch(isStare(id));
   };
+  const handleNotStare = (id) => {
+    dispatch(isNotStare(id));
+  };
   return (
     <div className="task-view">
       <Box
         sx={{ display: "grid", gridTemplateRows: "repeat(3, 1fr)" }}
         className="mt-8 "
       >
+        {taskList.length === 0 && (
+          <div className="empty-list">
+            <h2>Task list empty !</h2>
+            <img src="/empty-box.gif" alt="LIST EMPTY" />
+          </div>
+        )}
         {taskList &&
           taskList.map((el) => (
             <Item className="list-cont" key={el.id}>
@@ -103,7 +114,11 @@ export default function TasksView({ taskList }) {
                     }}
                   />
                 ) : (
-                  <StarRoundedIcon />
+                  <StarRoundedIcon
+                    onClick={() => {
+                      handleNotStare(el.id);
+                    }}
+                  />
                 )}
 
                 <span>

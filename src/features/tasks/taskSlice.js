@@ -53,6 +53,13 @@ const taskSlice = createSlice({
       if (isTaskExist) {
         isTaskExist[0].complete = false;
       }
+      let tasksDB = JSON.parse(localStorage.getItem("tasksDB")) || [];
+      const isTaskExistLoc = tasksDB.filter((task) => task.id === taskId);
+
+      if (isTaskExistLoc) {
+        isTaskExistLoc[0].complete = false;
+        localStorage.setItem("tasksDB", JSON.stringify(tasksDB));
+      }
     },
 
     isStare: (state, action) => {
@@ -67,6 +74,21 @@ const taskSlice = createSlice({
       const isTaskExistLoc = tasksDB.filter((task) => task.id === taskId);
       if (isTaskExistLoc) {
         isTaskExistLoc[0].star = true;
+        localStorage.setItem("tasksDB", JSON.stringify(tasksDB));
+      }
+    },
+    isNotStare: (state, action) => {
+      const taskId = action.payload;
+
+      const isTaskExist = state.filter((task) => task.id === taskId);
+
+      if (isTaskExist) {
+        isTaskExist[0].star = false;
+      }
+      let tasksDB = JSON.parse(localStorage.getItem("tasksDB")) || [];
+      const isTaskExistLoc = tasksDB.filter((task) => task.id === taskId);
+      if (isTaskExistLoc) {
+        isTaskExistLoc[0].star = false;
         localStorage.setItem("tasksDB", JSON.stringify(tasksDB));
       }
     },
@@ -119,6 +141,7 @@ export const {
   taskDetails,
   updateTaskValue,
   deleteTask,
+  isNotStare,
 } = taskSlice.actions;
 
 export default taskSlice.reducer;

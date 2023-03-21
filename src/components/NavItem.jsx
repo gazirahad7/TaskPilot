@@ -1,17 +1,17 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 function NavItem({ path, icon, name, countList }) {
   return (
     <>
-      <Link to={path}>
+      <NavLink to={path}>
         <div className="nav-item">
           {icon}
           <div>
-            {name} <span className="countItem">{countList || ""}</span>
+            {name} <span className="countItem">{countList || "0"}</span>
           </div>
         </div>
-      </Link>
+      </NavLink>
     </>
   );
 }
