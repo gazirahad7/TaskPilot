@@ -15,6 +15,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTask, updateTaskValue } from "./taskSlice";
 import ModeEditOutlineRoundedIcon from "@mui/icons-material/ModeEditOutlineRounded";
+import { toast } from "react-toastify";
 
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import { dateFormat } from "../../helper/formater";
@@ -37,10 +38,13 @@ export default function TaskDetails({ taskId }) {
       name: updateTask,
     };
     dispatch(updateTaskValue(obj));
+    toast.success("Update Successfully");
   };
 
   const deleteTaskHandler = () => {
     dispatch(deleteTask(singleTask[0]?.id));
+
+    toast.success("Delete Successfully");
   };
 
   const [state, setState] = React.useState({
@@ -102,16 +106,6 @@ export default function TaskDetails({ taskId }) {
 
           <div className="flex-between">
             <div>
-              {/* <button
-                type="submit"
-                onClick={() => {
-                  taskUpdateHandler();
-                }}
-              >
-                {" "}
-                Update
-              </button> */}
-
               <Button
                 variant="outlined"
                 color="success"
