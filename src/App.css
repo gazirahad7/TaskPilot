@@ -116,9 +116,9 @@ header {
 .nav-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   margin: 5px 15px;
-  padding: 10px;
+  padding: 14px 5px;
   border: 1px solid #eee;
   border-radius: 5px;
   font-size: 15px;
@@ -196,17 +196,20 @@ a {
 }
 
 .pagination {
-  background-color: transparent;
+  background-color: rgb(255, 255, 255, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 15px 0px;
-  padding: 8px;
+  margin: 30px 30%;
+  padding: 10px;
   border: 1px solid transparent;
   border-radius: 5px;
 }
 @media (max-width: 700px) {
   .empty-list img {
     width: 250px;
+  }
+  .pagination {
+    margin: 30px 10px;
   }
 }
