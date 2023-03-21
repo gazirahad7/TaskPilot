@@ -195,10 +195,8 @@ a {
   box-shadow: 0px 4px 8px rgb(0, 0, 0, 0.5);
 }
 
-@media screen and (max-width: 500) {
+@media (max-width: 700px) {
   .empty-list img {
     width: 250px;
-    border: 1px solid transparent;
-    border-radius: 10px !important;
   }
 }
