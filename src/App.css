@@ -164,7 +164,7 @@ a {
 }
 
 .app-main {
-  background-image: url("/bg-1.jpg");
+  background-image: url("/bg-8.jpg");
   background-size: cover;
   background-position: center center;
   height: 100vh;
@@ -205,6 +205,7 @@ a {
   border: 1px solid transparent;
   border-radius: 5px;
 }
+
 @media (max-width: 700px) {
   .empty-list img {
     width: 250px;

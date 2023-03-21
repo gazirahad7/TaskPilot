@@ -27,7 +27,7 @@ function App() {
 
     <>
       <Layout>
-        <ToastContainer position="bottom-right" />
+        <ToastContainer position="bottom-center" />
 
         <Routes>
           <Route path="/" element={<TasksView taskList={tasks} />} />
