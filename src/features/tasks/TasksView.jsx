@@ -1,6 +1,6 @@
 import StarOutlineRoundedIcon from "@mui/icons-material/StarOutlineRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
-import { Alert } from "@mui/material";
+import { Alert, Pagination } from "@mui/material";
 import Box from "@mui/material/Box";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -52,6 +52,18 @@ Item.propTypes = {
 //const tasks = useSelector((state) => state.taskReducer);
 export default function TasksView({ taskList }) {
   const completeAudio = new Audio("/complete.wav");
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [itemPerPage] = React.useState(6);
+
+  //
+
+  const indexOfLastItem = currentPage * itemPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemPerPage;
+  const currentItems = taskList.slice(indexOfFirstItem, indexOfLastItem);
+
+  const handleChange = (event, value) => {
+    setCurrentPage(value);
+  };
 
   const dispatch = useDispatch();
 
@@ -80,8 +92,8 @@ export default function TasksView({ taskList }) {
             <img src="/empty-box.gif" alt="LIST EMPTY" />
           </div>
         )}
-        {taskList &&
-          taskList.map((el) => (
+        {currentItems &&
+          currentItems.map((el) => (
             <Item className="list-cont" key={el.id}>
               <div>
                 {el.complete === true ? (
@@ -127,6 +139,16 @@ export default function TasksView({ taskList }) {
               </div>
             </Item>
           ))}
+
+        <div className="pagination">
+          <Pagination
+            count={taskList?.length}
+            variant="outlined"
+            color="primary"
+            page={currentPage}
+            onChange={handleChange}
+          />
+        </div>
       </Box>
     </div>
   );

@@ -23,6 +23,7 @@ import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 import { useSelector } from "react-redux";
 import NavItem from "./NavItem";
 import { dateFormat } from "../helper/formater";
+import { Pagination } from "@mui/material";
 const drawerWidth = 270;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
