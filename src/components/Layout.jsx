@@ -75,12 +75,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 export default function Layout({ children }) {
-  // const bgImgCSS = {
-  //   backgroundImage: 'url("/bg-one.jpg")',
-  //   backgroundSize: "cover",
-  //   backgroundPosition: "center center",
-  //   height: " 100vh ",
-  // };
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
 
@@ -169,7 +163,7 @@ export default function Layout({ children }) {
             countList={todayTasks?.length}
           />
 
-          <AddTask />
+          {/* <AddTask /> */}
         </List>
       </Drawer>
       <Main open={open} className="app-main">

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTask } from "../features/tasks/taskSlice";
 
-export default function InputSizes() {
+export default function AddTaskInput() {
   const [task, setTask] = useState("");
 
   const numberOfTasks = useSelector((state) => state.taskReducer.length);
@@ -41,6 +41,7 @@ export default function InputSizes() {
           placeholder=" +  Add new task"
           value={task}
           onChange={(e) => setTask(e.target.value)}
+          autoFocus
           required
         />
       </form>

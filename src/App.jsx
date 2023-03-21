@@ -11,20 +11,11 @@ import ImportantList from "./components/Important";
 import TodayList from "./components/TodayList";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   const tasks = useSelector((state) => state.taskReducer);
-  return (
-    // <div className="main-cont">
-    //   <aside className="navbar">Side nav</aside>
-    //   <main className="main">
-    //     <Container maxWidth="md">
-    //       <Top />
-    //       <TasksView />
-    //       <AddTask />
-    //     </Container>
-    //   </main>
-    // </div>
 
+  return (
     <>
       <Layout>
         <ToastContainer position="bottom-center" />
@@ -36,8 +27,6 @@ function App() {
           <Route path="/today-tasks" element={<TodayList />} />
         </Routes>
       </Layout>
-
-      {/* <AddTask /> */}
     </>
   );
 }

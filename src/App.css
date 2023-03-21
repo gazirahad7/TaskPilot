@@ -60,14 +60,8 @@ header {
 }
 .add-input {
   width: 100%;
-  /* margin-left: 220px; */
-
-  /* position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -330px; */
-  padding: 0 10px;
-  margin-top: 30px;
+  border: 1px solid transparent !important;
+  padding: 3px;
 }
 .bg-transparent {
   background-color: transparent;
@@ -83,7 +77,7 @@ header {
   overflow-y: hidden;
 }
 .mt-8 {
-  margin-top: 70px;
+  margin-top: 50px;
 }
 .css-dazktm {
   background-color: rgb(255, 255, 255, 0.7) !important;
@@ -200,17 +194,31 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px 30%;
+  margin: 10px 30% 0 30%;
   padding: 10px;
   border: 1px solid transparent;
   border-radius: 5px;
+}
+.add-container {
+  background-color: rgb(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 10% 0 10%;
+  border-radius: 8px;
+  display: none;
+}
+
+.css-xwhxxa-JoyInput-root {
+  border: none !important;
 }
 
 @media (max-width: 700px) {
   .empty-list img {
     width: 250px;
   }
-  .pagination {
+  .pagination,
+  .add-container {
     margin: 30px 10px;
   }
 }
