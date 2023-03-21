@@ -9,6 +9,10 @@ import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TaskDetails from "./TaskDetails";
 import { isComplete, isNotStare, isStare, unChecked } from "./taskSlice";
+import Fab from "@mui/material/Fab";
+import AddIcon from "@mui/icons-material/Add";
+
+import AddTaskInput from "../../components/AddTask";
 
 function Item(props) {
   const { sx, ...other } = props;
@@ -49,14 +53,14 @@ Item.propTypes = {
   ]),
 };
 
-//const tasks = useSelector((state) => state.taskReducer);
 export default function TasksView({ taskList }) {
+  const inputHandler = () => {
+    const addContainer = document.querySelector(".add-container");
+    addContainer.style.display = "block";
+  };
   const completeAudio = new Audio("/complete.wav");
   const [currentPage, setCurrentPage] = React.useState(1);
   const [itemPerPage] = React.useState(6);
-
-  //
-
   const indexOfLastItem = currentPage * itemPerPage;
   const indexOfFirstItem = indexOfLastItem - itemPerPage;
   const currentItems = taskList.slice(indexOfFirstItem, indexOfLastItem);
@@ -139,6 +143,22 @@ export default function TasksView({ taskList }) {
               </div>
             </Item>
           ))}
+
+        <Fab
+          color="primary"
+          sx={{
+            position: "absolute",
+            bottom: (theme) => theme.spacing(2),
+            right: (theme) => theme.spacing(2),
+          }}
+          onClick={() => inputHandler()}
+        >
+          <AddIcon />
+        </Fab>
+
+        <div className="add-container">
+          <AddTaskInput />
+        </div>
 
         <div className="pagination">
           <Pagination
