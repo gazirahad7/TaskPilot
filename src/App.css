@@ -116,12 +116,12 @@ header {
 .nav-item {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   margin: 5px 15px;
-  background-color: azure;
   padding: 10px;
-  border: 1px solid transparent;
+  border: 1px solid #eee;
   border-radius: 5px;
+  font-size: 15px;
 }
 
 a {
@@ -159,7 +159,7 @@ a {
 .theme-item {
   width: 60px;
   height: 60px;
-  background-color: aqua;
+  background-color: rgb(208, 237, 237);
   cursor: pointer;
 }
 
@@ -168,4 +168,37 @@ a {
   background-size: cover;
   background-position: center center;
   height: 100vh;
+  opacity: 0.9;
+}
+
+.active .nav-item {
+  border-left: 4px solid #1976d2;
+  color: #1976d2;
+  font-weight: 600;
+  background-color: azure;
+}
+
+.empty-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+.empty-list h2 {
+  color: #fff;
+}
+
+.empty-list img {
+  background: transparent;
+  width: 450px;
+  box-shadow: 0px 4px 8px rgb(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 500) {
+  .empty-list img {
+    width: 250px;
+    border: 1px solid transparent;
+    border-radius: 10px !important;
+  }
 }
