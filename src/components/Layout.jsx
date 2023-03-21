@@ -23,7 +23,6 @@ import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 import { useSelector } from "react-redux";
 import NavItem from "./NavItem";
 import { dateFormat } from "../helper/formater";
-import { Pagination } from "@mui/material";
 const drawerWidth = 270;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -76,7 +75,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 export default function Layout({ children }) {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);

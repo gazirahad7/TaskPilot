@@ -194,7 +194,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 30% 0 30%;
+  margin: 20px 30% 0 30%;
   padding: 10px;
   border: 1px solid transparent;
   border-radius: 5px;
@@ -217,8 +217,10 @@ a {
   .empty-list img {
     width: 250px;
   }
-  .pagination,
+  .pagination {
+    margin: 20px 10px;
+  }
   .add-container {
-    margin: 30px 10px;
+    margin: 10px 10px;
   }
 }

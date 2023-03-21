@@ -85,11 +85,11 @@ export default function TasksView({ taskList }) {
     dispatch(isNotStare(id));
   };
   return (
-    <div className="task-view">
-      <Box
-        sx={{ display: "grid", gridTemplateRows: "repeat(3, 1fr)" }}
-        className="mt-8 "
-      >
+    <Box
+      sx={{ display: "grid", gridTemplateRows: "repeat(3, 1fr)" }}
+      className="mt-8 "
+    >
+      <div className="task-view">
         {taskList.length === 0 && (
           <div className="empty-list">
             <h2>Task list empty !</h2>
@@ -159,17 +159,18 @@ export default function TasksView({ taskList }) {
         <div className="add-container">
           <AddTaskInput />
         </div>
-
-        <div className="pagination">
-          <Pagination
-            count={taskList?.length}
-            variant="outlined"
-            color="primary"
-            page={currentPage}
-            onChange={handleChange}
-          />
-        </div>
-      </Box>
-    </div>
+        {taskList.length > 5 && (
+          <div className="pagination">
+            <Pagination
+              count={5}
+              variant="outlined"
+              color="primary"
+              page={currentPage}
+              onChange={handleChange}
+            />
+          </div>
+        )}
+      </div>
+    </Box>
   );
 }

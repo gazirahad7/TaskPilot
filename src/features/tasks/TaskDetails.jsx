@@ -1,14 +1,8 @@
 import InfoIcon from "@mui/icons-material/Info";
-import MailIcon from "@mui/icons-material/Mail";
 import ModeEditOutlineRoundedIcon from "@mui/icons-material/ModeEditOutlineRounded";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import { Button, Container, Divider } from "@mui/material";
 import Box from "@mui/material/Box";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
+
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import TextField from "@mui/material/TextField";
 import * as React from "react";
@@ -89,18 +83,7 @@ export default function TaskDetails({ taskId }) {
         </form>
 
         <p>{updateTask}</p>
-        <List>
-          {["Inbox", "Starred", "Drafts"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+
         <h4>Created: {dateFormat(singleTask[0]?.created)} </h4>
 
         <div className="item-end">
