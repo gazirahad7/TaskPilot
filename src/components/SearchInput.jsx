@@ -13,7 +13,7 @@ export default function SearchInput() {
           freeSolo
           id="free-solo-2-demo"
           disableClearable
-          options={tasks.map((el) => el.task)}
+          options={tasks.map((el) => el.task.substring(0, 25))}
           renderInput={(params) => (
             <TextField
               {...params}
