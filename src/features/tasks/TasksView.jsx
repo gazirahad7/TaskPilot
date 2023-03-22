@@ -121,7 +121,13 @@ export default function TasksView({ taskList }) {
                   />
                 )}
 
-                {el.complete === true ? <del>{el.task}</del> : el.task}
+                {el.complete === true ? (
+                  <del>{el.task}</del>
+                ) : el.task.length > 25 ? (
+                  el.task.substring(0, 25).concat("...")
+                ) : (
+                  el.task
+                )}
               </div>
               <div>
                 {el.star !== true ? (

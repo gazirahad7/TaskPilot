@@ -3,20 +3,18 @@ import * as React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTask } from "../features/tasks/taskSlice";
+import { v4 as uuidv4 } from "uuid";
 
 export default function AddTaskInput() {
   const [task, setTask] = useState("");
 
-  const numberOfTasks = useSelector((state) => state.taskReducer.length);
-
   const dispatch = useDispatch();
-  console.log(numberOfTasks);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const newTask = {
-      id: numberOfTasks + 1,
+      id: uuidv4(),
       task,
       complete: false,
       star: false,
