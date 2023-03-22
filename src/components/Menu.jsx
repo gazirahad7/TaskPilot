@@ -9,6 +9,10 @@ export default function SettingMenu() {
   const [theme, setTheme] = React.useState("/bg-1.jpg");
 
   const themeArray = [
+    "bg-13",
+    "bg-14",
+    "bg-15",
+    "bg-16",
     "bg-1",
     "bg-2",
     "bg-3",

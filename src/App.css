@@ -207,6 +207,12 @@ a {
 .css-lqk1w2 {
   height: 75vh !important;
 }
+.home-icon {
+  display: flex;
+  justify-content: start;
+  gap: 4px;
+  align-items: center;
+}
 
 @media (max-width: 700px) {
   .empty-list img {
