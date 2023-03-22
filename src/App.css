@@ -14,7 +14,6 @@ header {
 .main-cont {
   display: grid;
   grid-template-columns: 220px auto;
-  height: 100vh;
 }
 
 .navbar {
@@ -67,17 +66,11 @@ header {
   background-color: transparent;
 }
 
-/* .css-jzk4qw-MuiPaper-root-MuiAppBar-root,
-.css-ciy9n4-MuiPaper-root-MuiAppBar-root {
-  background-color: white !important;
-  box-shadow: none !important;
-} */
-
 .css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
   overflow-y: hidden;
 }
 .mt-8 {
-  margin-top: 50px;
+  margin-top: 60px;
 }
 .css-dazktm {
   background-color: rgb(255, 255, 255, 0.7) !important;
@@ -211,6 +204,9 @@ a {
 
 .css-xwhxxa-JoyInput-root {
   border: none !important;
+}
+.css-lqk1w2 {
+  height: 75vh !important;
 }
 
 @media (max-width: 700px) {
