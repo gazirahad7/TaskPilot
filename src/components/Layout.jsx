@@ -12,7 +12,6 @@ import List from "@mui/material/List";
 import { styled, useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import * as React from "react";
-import AddTask from "./AddTask";
 import SearchInput from "./SearchInput";
 import Top from "./Top";
 

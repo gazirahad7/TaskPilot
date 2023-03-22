@@ -1,16 +1,16 @@
+import AddIcon from "@mui/icons-material/Add";
 import StarOutlineRoundedIcon from "@mui/icons-material/StarOutlineRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
-import { Alert, Pagination } from "@mui/material";
+import { Pagination } from "@mui/material";
 import Box from "@mui/material/Box";
 import Checkbox from "@mui/material/Checkbox";
+import Fab from "@mui/material/Fab";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import PropTypes from "prop-types";
 import * as React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import TaskDetails from "./TaskDetails";
 import { isComplete, isNotStare, isStare, unChecked } from "./taskSlice";
-import Fab from "@mui/material/Fab";
-import AddIcon from "@mui/icons-material/Add";
 
 import AddTaskInput from "../../components/AddTask";
 
@@ -54,16 +54,17 @@ Item.propTypes = {
 };
 
 export default function TasksView({ taskList }) {
-  const inputHandler = () => {
-    const addContainer = document.querySelector(".add-container");
-    addContainer.style.display = "block";
-  };
   const completeAudio = new Audio("/complete.wav");
   const [currentPage, setCurrentPage] = React.useState(1);
+  const [openInput, setOpenInput] = React.useState(false);
   const [itemPerPage] = React.useState(6);
   const indexOfLastItem = currentPage * itemPerPage;
   const indexOfFirstItem = indexOfLastItem - itemPerPage;
   const currentItems = taskList.slice(indexOfFirstItem, indexOfLastItem);
+
+  const inputHandler = () => {
+    setOpenInput(!openInput);
+  };
 
   const handleChange = (event, value) => {
     setCurrentPage(value);
@@ -151,14 +152,12 @@ export default function TasksView({ taskList }) {
             bottom: (theme) => theme.spacing(2),
             right: (theme) => theme.spacing(2),
           }}
-          onClick={() => inputHandler()}
+          onClick={inputHandler}
         >
           <AddIcon />
         </Fab>
 
-        <div className="add-container">
-          <AddTaskInput />
-        </div>
+        <div className="add-container">{openInput && <AddTaskInput />}</div>
         {taskList.length > 5 && (
           <div className="pagination">
             <Pagination
