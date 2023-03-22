@@ -167,7 +167,7 @@ export default function TasksView({ taskList }) {
         {taskList.length > 5 && (
           <div className="pagination">
             <Pagination
-              count={5}
+              count={Math.round(taskList.length / 5)}
               variant="outlined"
               color="primary"
               page={currentPage}
