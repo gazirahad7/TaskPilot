@@ -123,8 +123,8 @@ export default function TasksView({ taskList }) {
 
                 {el.complete === true ? (
                   <del>{el.task}</del>
-                ) : el.task.length > 25 ? (
-                  el.task.substring(0, 25).concat("...")
+                ) : el.task.length > 30 ? (
+                  el.task.substring(0, 30).concat("...")
                 ) : (
                   el.task
                 )}
