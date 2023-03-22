@@ -8,11 +8,12 @@ import Fab from "@mui/material/Fab";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import PropTypes from "prop-types";
 import * as React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import TaskDetails from "./TaskDetails";
 import { isComplete, isNotStare, isStare, unChecked } from "./taskSlice";
 
 import AddTaskInput from "../../components/AddTask";
+import { setSearchTerm } from "./searchSlice";
 
 function Item(props) {
   const { sx, ...other } = props;
@@ -58,9 +59,25 @@ export default function TasksView({ taskList }) {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [openInput, setOpenInput] = React.useState(false);
   const [itemPerPage] = React.useState(6);
+
+  //
   const indexOfLastItem = currentPage * itemPerPage;
   const indexOfFirstItem = indexOfLastItem - itemPerPage;
   const currentItems = taskList.slice(indexOfFirstItem, indexOfLastItem);
+
+  //
+  const searchTerm = useSelector((state) => state.searchReducer);
+  const filteredData = useSelector((state) => {
+    return state.taskReducer.filter((item) =>
+      item.task.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
+  const filteredTask =
+    searchTerm === ""
+      ? taskList.slice(indexOfFirstItem, indexOfLastItem)
+      : filteredData;
+
+  //
 
   const inputHandler = () => {
     setOpenInput(!openInput);
@@ -97,8 +114,8 @@ export default function TasksView({ taskList }) {
             <img src="/empty-box.gif" alt="LIST EMPTY" />
           </div>
         )}
-        {currentItems &&
-          currentItems.map((el) => (
+        {filteredTask &&
+          filteredTask.map((el) => (
             <Item className="list-cont" key={el.id}>
               <div>
                 {el.complete === true ? (
