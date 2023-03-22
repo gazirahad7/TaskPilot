@@ -162,9 +162,12 @@ a {
   border-left: 4px solid #1976d2;
   color: #1976d2;
   font-weight: 600;
-  background-color: azure;
+  background-color: rgb(243, 252, 252);
 }
 
+.dot {
+  cursor: pointer;
+}
 .empty-list {
   display: flex;
   flex-direction: column;
@@ -212,6 +215,9 @@ a {
   justify-content: start;
   gap: 4px;
   align-items: center;
+}
+.home-icon-a {
+  color: #ffffff;
 }
 
 @media (max-width: 700px) {

@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import * as React from "react";
+import { Link } from "react-router-dom";
 import SettingMenu from "./Menu";
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -18,16 +19,18 @@ export default function Top() {
     <Box sx={{ flexGrow: 1, my: 2, mx: 1 }} position="start" marginTop={4}>
       <Grid container spacing={4} alignItems="center">
         <Grid item xs={4}>
-          <div className="home-icon">
-            <span>
-              <HomeRoundedIcon />
-            </span>
-            <span>Tasks</span>
-          </div>
+          <Link to="/" className="home-icon-a">
+            <div className="home-icon">
+              <span>
+                <HomeRoundedIcon />
+              </span>
+              <span>Tasks</span>
+            </div>
+          </Link>
         </Grid>
         <Grid item xs={4}></Grid>
         <Grid item xs={4} align="right">
-          <span>
+          <span className="dot">
             <SettingMenu />
           </span>
         </Grid>
