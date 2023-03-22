@@ -2,7 +2,6 @@ import { Container } from "@mui/material";
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import * as React from "react";
-//import { useState } from "react";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import ThemeItem from "./ThemeItem";
 export default function SettingMenu() {

@@ -13,7 +13,11 @@ import { deleteTask, updateTaskValue } from "./taskSlice";
 
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import { dateFormat } from "../../helper/formater";
-
+import InteractiveList, { MyList } from "../../components/TaskDetailsItem";
+import TaskDetailsItem from "../../components/TaskDetailsItem";
+import TaskAltRoundedIcon from "@mui/icons-material/TaskAltRounded";
+import AccessTimeRoundedIcon from "@mui/icons-material/AccessTimeRounded";
+import StarRoundedIcon from "@mui/icons-material/StarRounded";
 export default function TaskDetails({ taskId }) {
   const tasks = useSelector((state) => state.taskReducer);
   const singleTask = tasks.filter((el) => el.id === taskId);
@@ -84,7 +88,24 @@ export default function TaskDetails({ taskId }) {
 
         <p>{updateTask}</p>
 
-        <h4>Created: {dateFormat(singleTask[0]?.created)} </h4>
+        <TaskDetailsItem>
+          <MyList
+            icon={<TaskAltRoundedIcon />}
+            name={singleTask[0]?.complete === true ? "Completed" : "Pending"}
+          />
+          <MyList
+            icon={<StarRoundedIcon />}
+            name={singleTask[0]?.star === true ? "Important" : "Unimportant"}
+          />
+          <MyList
+            icon={<AccessTimeRoundedIcon />}
+            name={`Created ${
+              dateFormat(singleTask[0]?.created) !== dateFormat(new Date())
+                ? "was"
+                : "today"
+            }: ${dateFormat(singleTask[0]?.created)}`}
+          />
+        </TaskDetailsItem>
 
         <div className="item-end">
           <Divider />
@@ -93,7 +114,6 @@ export default function TaskDetails({ taskId }) {
             <div>
               <Button
                 variant="outlined"
-                className={"update-btn-" + singleTask[0]?.id}
                 color="success"
                 type="button"
                 onClick={() => {
