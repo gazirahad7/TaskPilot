@@ -19,6 +19,7 @@ specifiers:
   react-redux: ^8.0.5
   react-router-dom: ^6.9.0
   react-toastify: ^9.1.1
+  uuid: ^9.0.0
   vite: ^4.0.0
 
 dependencies:
@@ -37,6 +38,7 @@ dependencies:
   react-redux: 8.0.5_3xleytyzprlgycb2ded54tx72i
   react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
   react-toastify: 9.1.1_biqbaboplfbrettd7655fr4n2y
+  uuid: 9.0.0
 
 devDependencies:
   '@types/react': 18.0.28
@@ -1558,6 +1560,11 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /uuid/9.0.0:
+    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
+    hasBin: true
     dev: false
 
   /vite/4.1.2:
