@@ -17,7 +17,7 @@ A brief description of what this project does and who it's for
 
 
 
-### FIGMA for UI/UX:
+###  UI/UX:
 
   - UI/UX  inspiration from Microsoft todo
   
