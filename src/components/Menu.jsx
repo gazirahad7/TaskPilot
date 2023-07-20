@@ -3,7 +3,11 @@ import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import * as React from "react";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import ThemeItem from "./ThemeItem";
+//import ThemeItem from "./ThemeItem";
+import { Suspense } from "react";
+import { lazy } from "react";
+
+const ThemeItem = lazy(() => import("./ThemeItem"));
 export default function SettingMenu() {
   const [theme, setTheme] = React.useState("/bg-1.jpg");
 
@@ -67,20 +71,23 @@ export default function SettingMenu() {
       >
         <p>Choose Theme</p>
 
-        <div className="theme-items">
-          {themeArray &&
-            themeArray.map((img, index) => (
-              <div
-                className="theme-item"
-                key={index}
-                onClick={() => {
-                  setTheme(`${img}.jpg`), localStorage.setItem("theme", theme);
-                }}
-              >
-                <ThemeItem img={`${img}.jpg`} />
-              </div>
-            ))}
-        </div>
+        <Suspense fallback="Loading">
+          <div className="theme-items">
+            {themeArray &&
+              themeArray.map((img, index) => (
+                <div
+                  className="theme-item"
+                  key={index}
+                  onClick={() => {
+                    setTheme(`${img}.jpg`),
+                      localStorage.setItem("theme", theme);
+                  }}
+                >
+                  <ThemeItem img={`${img}.jpg`} />
+                </div>
+              ))}
+          </div>
+        </Suspense>
       </Box>
     </Container>
   );

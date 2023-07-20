@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function ThemeItem({ img, color }) {
   //   const [theme, setTheme] = React.useState("/bg-one.jpg");
@@ -10,7 +11,19 @@ function ThemeItem({ img, color }) {
   //     appMain.style.backgroundImage = `"url('${theme}')"`;
   //   }
 
-  return <div>{<img src={img} alt="Theme Item" height={60} width={60} />}</div>;
+  return (
+    <div>
+      {
+        <LazyLoadImage
+          src={img}
+          alt="Theme Item"
+          height={60}
+          width={60}
+          loading="lazy"
+        />
+      }
+    </div>
+  );
 }
 
 export default ThemeItem;
